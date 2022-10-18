@@ -1,0 +1,19 @@
+syntax= "proto3";
+// name表示生成go文件所述的包名
+option go_package="../service";
+//指定文件生成出来的package
+package  service;
+//消息传输的对象
+message ProductRequest {
+    int32 prod_id = 1;
+}
+
+message ProductResponse {
+    int32 prod_stock = 1;
+}
+
+//定义服务体
+service ProdService{
+    //定义方法
+    rpc GetProductStock(ProductRequest) returns(ProductResponse);
+}
